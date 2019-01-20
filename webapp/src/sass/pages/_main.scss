@@ -1,0 +1,10 @@
+section {
+    width: 100%;
+    @include rem(margin, 10px);
+    @include rem(padding, 20px);
+    max-width: 800px;
+    line-height: 1.6em;
+    box-sizing: border-box;
+    @include rem(padding, 5px 20px);
+    @include rem(font-size, 18px);
+}

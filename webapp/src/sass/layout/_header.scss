@@ -1,0 +1,49 @@
+
+
+.headline {
+  position: relative;
+  height: 400px;
+  color: #fff;
+  text-align: center;
+  background: url('https://farm9.staticflickr.com/8088/8363737128_b76782c7a2_b.jpg') no-repeat center center;
+  background-size: cover;
+  &:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(#111, 0.5);
+  }
+}
+
+.inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  z-index: 10;
+  transform: translateX(-50%) translateY(-50%);
+  animation: fade-in 0.75s 0.25s ease-in forwards;
+  h1 {
+    @include font-size(64px);
+    margin: 0;
+    line-height: 1.2em;
+  }
+  p {
+    @include font-size(30px);
+    margin: 0;
+    font-style: italic;
+    font-family: serif;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

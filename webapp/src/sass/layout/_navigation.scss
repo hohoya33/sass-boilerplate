@@ -1,0 +1,141 @@
+
+/* HEADER */
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 66px;
+  line-height: 66px;
+  color: #fff;
+  background-color: #3498DB;
+  z-index: 10;
+}
+
+.header__logo {
+  padding: 0 25px;
+  float: left;
+  color: #fff;
+  text-decoration: none;
+  @include font-size(28px);
+  font-weight: bold
+}
+
+/* MENU */
+.menu {
+  .menu-list {
+    float: right;
+    margin: 0;
+  }
+  .menu-item {
+    float: left;
+  }
+  .menu-link {
+    @include font-size(18px);
+    color: #fff;
+    text-decoration: none;
+    margin: 0 20px;
+    display: block;
+    &:hover {
+      color: darken(#fff, 7%);
+    }
+  }
+}
+
+/* RESPONSIVE */
+@media only screen and (max-width: 768px) {
+  .header {
+    position: static;
+  }
+  .menu-toggle {
+    display: block;
+    float: right;
+    width: 50px;
+    height: 66px;
+    text-align: center
+  }
+
+  
+
+
+
+
+  
+  .hamburger-box {
+    position: relative;
+    width: 30px;
+    height: 24px;
+    display: inline-block;
+  }
+
+  .hamburger-inner {
+    display: block;
+    top: 50%;
+    margin-top: -2px
+  }
+
+  .hamburger-inner,.hamburger-inner::after,.hamburger-inner::before {
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 2px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: .15s;
+    transition-timing-function: ease
+  }
+
+  .hamburger-inner::after,.hamburger-inner::before {
+      content: "";
+      display: block
+  }
+
+  .hamburger-inner::before {
+      top: -10px
+  }
+
+  .hamburger-inner::after {
+      bottom: -10px
+  }
+
+.is-active .hamburger-inner {
+    transform: translate3d(0,-10px,0) rotate(-45deg);
+    transition-delay: .32s;
+    transition-timing-function: cubic-bezier(.215,.61,.355,1)
+}
+
+.is-active .hamburger-inner::after {
+    top: 0;
+    opacity: 0;
+    transition: top .3s cubic-bezier(.33333,0,.66667,.33333),opacity .1s .27s linear
+}
+
+.is-active .hamburger-inner::before {
+    top: 0;
+    transform: rotate(-90deg);
+    transition: top .12s .18s cubic-bezier(.33333,0,.66667,.33333),transform .15s .42s cubic-bezier(.215,.61,.355,1)
+}
+
+
+
+  
+  .menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+    width: 250px;
+    z-index: 100;
+    .menu-item {
+      width: 100%;
+    }
+    .menu-link {
+      display: block;
+      height: 40px;
+      text-align: center;
+      line-height: 40px;
+    }
+  }
+}
+

@@ -1,0 +1,51 @@
+.btn,
+%btn {
+    display: inline-block;
+    padding: 1em;
+}
+
+.btn-positive {
+    @extend %btn;
+    background-color: green;
+    color: white;
+}
+
+.btn-negative {
+    @extend %btn;
+    background-color: red;
+    color: white;
+}
+
+.btn-neutral {
+    @extend %btn;
+    background-color: lightgray;
+    color: black;
+}
+
+
+
+@mixin coloring($color) {
+    background: lighten($color, 20%);
+    border: 1px solid lighten($color, 10%);
+    color: $color;
+  }
+  
+  %coloring-red {
+    @include coloring(red);
+  }
+  
+  %coloring-green {
+    @include coloring(green);
+  }
+  
+  .message--danger {
+    @extend %coloring-red;
+  }
+  
+  .pricing-table__cell--chip {
+    @extend %coloring-green;
+  }
+  
+  .pricing-table__cell--expensive {
+    @extend %coloring-red;
+  }

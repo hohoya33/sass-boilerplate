@@ -1,0 +1,127 @@
+@mixin fz($sizee: 1.6) {
+    font-size: ($sizee * 10) + px;
+    font-size: $sizee + rem;
+}
+
+@mixin size($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin square($size) {
+    @include size($size, $size);
+}
+
+@mixin circle($size) {
+    @include size($size, $size);
+    border-radius: 50%;
+}
+
+
+@mixin centering {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+//position absolute
+@mixin absolute ($top: auto, $right: auto, $bottom: auto, $left: auto, $zindex: auto) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+    z-index: $zindex;
+}
+@mixin absolute_top_left($top: 0, $left: 0) {
+    position: absolute;
+    top: $top;
+    left: $left;
+}
+@mixin absolute_top_right($top: 0, $right: 0) {
+    position: absolute;
+    top: $top;
+    right: $right;
+}
+@mixin absolute_bottom_left($bottom: 0, $left: 0) {
+    position: absolute;
+    bottom: $bottom;
+    left: $left;
+}
+@mixin absolute_bottom_right($bottom: 0, $right: 0) {
+position: absolute;
+    bottom: $bottom;
+    right: $right;
+}
+
+@mixin img_repl {
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+}
+
+@mixin ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+@mixin keyframes($animation-name) {
+    @keyframes #{$animation-name} {
+        @content;
+    }
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin arrow ($color:$colorMain, $right:auto, $left:auto) {
+    width: 100%;
+    display: block;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: $right;
+        left: $left;
+        width: 8px;
+        height: 8px;
+        margin: auto;
+        vertical-align: middle;
+        border-top: 2px solid $color;
+        border-right: 2px solid $color;
+        transform: rotate(45deg);
+    }
+}
+
+
+
+
+
+$items: sample1, sample2, sample3;
+
+@each $item in $items {
+  .#{$item}--bg {
+      background: url(./img/#{$item}_bg.png) 0 0 no-repeat;
+  }
+}
+
+$sample_color:(
+  abc:pink,
+  def:black,
+  ghi:blue,
+  jkl:red
+);
+
+@each $sample, $color in $sample_color {
+  .color--#{$sample} {
+     color: $color;
+  }
+}
